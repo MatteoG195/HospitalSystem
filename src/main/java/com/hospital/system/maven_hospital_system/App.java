@@ -1,4 +1,6 @@
 package com.hospital.system.maven_hospital_system;
+import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -10,7 +12,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 /**
- * Hello world!
+ * Hello world! SQL PASS: dv7&hH9#$6
  *
  */
 public class App extends Application
@@ -22,22 +24,15 @@ public class App extends Application
     }
     @Override
     public void start(Stage stage) throws Exception {
-        stage.setTitle("Hello World!");
-        Button btn = new Button();
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
- 
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
-            }
-        });
-        
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
-        stage.setScene(new Scene(root, 300, 250));
-
-        stage.show();
-    }
-
+    	//Start with login...
+    	FXMLLoginController f = new FXMLLoginController(stage);
+    	try{
+    		stage.setScene(f.LoginScreen());
+    		
+    	}
+		catch(IOException e) {
+			System.err.println("Scene Invalid!  Please Validate correct pointer to login file...");
+		}
+    	stage.show();
+    	}
 }
